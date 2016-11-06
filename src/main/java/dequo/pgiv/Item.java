@@ -3,26 +3,26 @@ package dequo.pgiv;
 /**
  * Created by 21301646 on 04/11/2016.
  */
-public class Item {
-    private int i;
+public class Item<T> {
+    private T i;
 
-    public Item(int i){
+    public Item(T i){
         this.i = i;
     }
 
     public boolean equals(Object o){
         if(o instanceof Item){
             Item item = (Item) o;
-            return item.i == i;
+            return item.i.equals(i);
         }else
             return false;
     }
 
-    public void set(int i){
+    public void set(T i){
         this.i = i;
     }
 
-    public int get(){
+    public T get(){
         return i;
     }
 }
