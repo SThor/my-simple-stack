@@ -3,10 +3,12 @@ package dequo.pgiv;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.EmptyStackException;
+
 import static org.junit.Assert.*;
 
 public class StackTest {
-    Stack stack;
+    private Stack stack;
 
     @Before
     public void setUp() throws Exception {
@@ -42,11 +44,21 @@ public class StackTest {
         assertEquals(1, stack.getSize());
     }
 
+    @Test(expected = EmptyStackException.class)
+    public void testPeekException() throws Exception{
+        stack.peek();
+    }
+
     @Test
     public void testPop() throws Exception {
         Item item = new Item(10);
         stack.push(item);
         assertEquals(item, stack.pop());
         assertTrue(stack.isEmpty());
+    }
+
+    @Test(expected = EmptyStackException.class)
+    public void testPopException() throws Exception{
+        stack.pop();
     }
 }

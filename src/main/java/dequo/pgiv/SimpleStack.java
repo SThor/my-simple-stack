@@ -7,30 +7,37 @@ import java.util.EmptyStackException;
  */
 public interface SimpleStack {
     /**
-     * Tests if this stack is empty
+     * Tests if this stack is empty.
+     * @return true if the stack is empty, else otherwise
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
-     * Returns the number of items in this stack
+     * Returns the number of items in this stack.
+     * @return number of items in this stack
      */
-    public int getSize();
+    int getSize();
 
     /**
      * Pushes an item onto the top of this stack.
      * null item is allowed
+     * @param item to add to the stack
      */
-    public void push(Item item);
+    void push(Item item);
 
     /**
-     * Looks at the object at the top of this stack without removing it from the stack
+     * Looks at the object at the top of this stack
+     * without removing it from the stack.
      * @throws EmptyStackException is this stack is empty
+     * @return Item at the top of this stack
      */
-    public Item peek() throws EmptyStackException;
+    Item peek() throws EmptyStackException;
 
     /**
-     * Removes the object at the top of this stack and returns that object as the value of this function.
+     * Removes the object at the top of this stack
+     * and returns that object as the value of this function.
      * @throws EmptyStackException is this stack is empty
+     * @return item at the top of this stack
      */
-    public Item pop() throws EmptyStackException;
+    Item pop() throws EmptyStackException;
 }

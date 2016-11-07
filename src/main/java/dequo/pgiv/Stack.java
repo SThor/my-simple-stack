@@ -8,9 +8,15 @@ import java.util.List;
  * Created by 21301646 on 04/11/2016.
  */
 public class Stack implements SimpleStack {
-    List<Item> list;
+    /**
+     * list of all the items in the stack.
+     */
+    private List<Item> list;
 
-    public Stack(){
+    /**
+     * constructs an empty stack.
+     */
+    public Stack() {
         list = new ArrayList<>();
     }
 
@@ -25,19 +31,27 @@ public class Stack implements SimpleStack {
     }
 
     @Override
-    public void push(Item item) {
+    public void push(final Item item) {
         list.add(item);
     }
 
     @Override
     public Item peek() throws EmptyStackException {
-        return list.get(list.size()-1);
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        } else {
+            return list.get(list.size() - 1);
+        }
     }
 
     @Override
     public Item pop() throws EmptyStackException {
-        Item item = list.get(list.size()-1);
-        list.remove(list.size()-1);
-        return item;
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        } else {
+            Item item = list.get(list.size() - 1);
+            list.remove(list.size() - 1);
+            return item;
+        }
     }
 }
